@@ -1,0 +1,45 @@
+<app-sidenav #user [open]="openSidenav" [rolUser]="rol">
+    <header>
+        <div class="title-container">
+            <button mat-icon-button class="menuButton" (click)="openSidenav = !openSidenav">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h1>Mi librería USER</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a routerLink="/user">Inicio</a></li>
+                <li><a routerLink="/catalogo">Catálogo</a></li>
+                <li><a routerLink="/catalogo">Contacto</a></li>
+                <li><a id="usuario">Bienvenido {{usuario.nombre| titlecase}}</a></li>
+                <li id="carrito">
+                    <mat-icon [matMenuTriggerFor]="menu" matBadge="5" matBadgeColor="warn"
+                        (click)="mostrarCarrito = !mostrarCarrito" matBadgeSize="large">
+                        shopping_cart
+                    </mat-icon>
+
+                    <mat-menu #menu="matMenu">
+                        <app-cart></app-cart>
+                    </mat-menu>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Libros destacados</h2>
+        <section class="container">
+            <article class="libros" *ngFor="let libros of libros; index as i">
+                <img src="https://picsum.photos/{{i * 50}}" alt="Portada libro">
+                <h3>{{ libros.nombre | titlecase }}</h3>
+                <p>{{ libros.author.nombre | titlecase }}</p>
+                <button mat-raised-button color="basic" (click)="agregarProducto(i)">Agregar</button>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Mi librería</p>
+    </footer>
+
+</app-sidenav>

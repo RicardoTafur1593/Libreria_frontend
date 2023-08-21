@@ -1,0 +1,19 @@
+<h1 mat-dialog-title *ngIf="!data"><mat-icon>build</mat-icon>Registrando Autor ...</h1>
+<h1 mat-dialog-title *ngIf="data"><mat-icon>build</mat-icon>Eliminando Autor</h1>
+
+<form [formGroup]="formAutor">
+    <mat-form-field *ngIf="!data">
+        <mat-label>Nombre del Autor</mat-label>
+        <input matInput #postalCode type="text" formControlName="nombre" placeholder="NOMBRE DEL AUTOR">
+    </mat-form-field>
+    <button mat-raised-button color="basic" *ngIf="!data" (click)="btnRegistrarAutor(); cerrarDialogo()">Registrar</button>
+
+
+    <mat-form-field *ngIf="data">
+        <mat-label>Nombre del autor</mat-label>
+        <mat-select formControlName="_id">
+            <mat-option *ngFor="let autor of autores" [value]="autor._id">{{autor.nombre | titlecase}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="basic" *ngIf="data" (click)="btnEliminarAutor(); cerrarDialogo()">Eliminar</button>
+</form>

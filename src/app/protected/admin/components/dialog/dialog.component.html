@@ -1,0 +1,94 @@
+
+<h1 mat-dialog-title *ngIf="!esEditar"><mat-icon>build</mat-icon>Registrando Libro ...</h1>
+<h1 mat-dialog-title *ngIf="esEditar"><mat-icon>build</mat-icon>Editando Libro ... {{data.nombre | titlecase}}</h1>
+
+
+<div mat-dialog-actions>
+
+  <Form [formGroup]="miFormulario" *ngIf="miFormulario" class="formularioLibro">
+
+    <mat-form-field class="simpleLabel" *ngIf="!esEditar">
+        <mat-label>SKU del Libro</mat-label>
+        <input matInput 
+               #postalCode
+               type="number"
+               formControlName="sku"
+               placeholder="SKU DEL LIBRO">
+    </mat-form-field>
+
+    <table class="simpleLabel" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="simpleLabel">
+            <mat-label>Nombre Libro</mat-label>
+            <input matInput 
+                   #postalCode 
+                   type="text"
+                   formControlName="nombre"
+                   placeholder="Nombre del libro">
+          </mat-form-field>
+        </td>
+
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre del autor</mat-label>
+            <mat-select formControlName="author">
+              <mat-option *ngFor="let autor of autores" [value]="autor._id">{{autor.nombre | titlecase}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="toogle">
+            <mat-label>Disponibilidad</mat-label>
+            <mat-slide-toggle formControlName="disponibilidad"></mat-slide-toggle>
+        </td>
+
+        <td>
+          <mat-form-field class="simpleLabel">
+            <mat-label>Precio</mat-label>
+            <input matInput 
+                   #postalCode
+                   type="number"
+                   formControlName="precio"
+                   placeholder="$25.46">
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field class="doubleLabel">
+            <mat-label>Sinopsis</mat-label>
+            <textarea matInput 
+                      type="text"
+                      formControlName="sinopsis"
+                      placeholder="Breve descripción del libro"></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+
+    </table>
+
+    <button class="buttonMenuEditar" 
+            mat-raised-button 
+            color="basic" 
+            (click)="crearLibro(); cerrarDialogo()"
+            *ngIf="!esEditar"
+            type="button">
+            Registrar
+    </button>
+
+    <button class="buttonMenuEditar" 
+            mat-raised-button 
+            color="basic" 
+            (click)="editarCampos(); cerrarDialogo()"
+            *ngIf="esEditar"
+            type="button">
+            Editar
+    </button>
+
+  </Form>
+
+</div>

@@ -1,0 +1,44 @@
+h1 {
+    padding: 5px;
+    display: flex;
+    flex-direction: row; /*esto define la dirección de las propiedas justify y align*/
+    justify-content: center; /*posicion horizontalmente siempre que flex-direction = row*/
+    align-items: first baseline; /*posicion verticalmente siempre que flex-direction = row*/
+}
+
+mat-icon {
+    width: max-content;
+    height: max-content;
+}
+
+.formularioLibro {
+    width: 100%;
+}
+
+.simpleLabel {
+    width: 100%;
+}
+
+.doubleLabel {
+    width: 200%;
+}
+
+td {
+    padding-right: 5px;
+}
+
+.toogle {
+    height: 4em;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toogle, mat-label {
+    padding-right: 10px;
+}
+
+.buttonMenuEditar {
+    float: right;
+}

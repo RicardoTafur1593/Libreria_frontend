@@ -1,0 +1,49 @@
+<app-sidenav admin [open]="openSidenav" [rolUser]="rol">
+    <header>
+        <div class="title-container">
+            <button mat-icon-button class="menuButton" (click)="openSidenav = !openSidenav">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h1>Mi librería ADMIN</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a routerLink="/admin">Inicio</a></li>
+                <li><a routerLink="/catalogo">Contacto</a></li>
+                <li><a id="usuario">Bienvenido Administrador {{usuario.nombre | titlecase}}</a></li>
+                <li id="carrito">
+                    <mat-icon [matMenuTriggerFor]="menu" matBadge="5" matBadgeColor="warn"
+                        (click)="mostrarCarrito = !mostrarCarrito" matBadgeSize="large">
+                        shopping_cart
+                    </mat-icon>
+
+                    <mat-menu #menu="matMenu">
+                        <app-cart></app-cart>
+                    </mat-menu>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Libros destacados</h2>
+        <section class="container">
+            <article class="libros" *ngFor="let libro of libros; index as i">
+                <img src="https://picsum.photos/{{i * 50}}" alt="Portada libro">
+                <p>{{ libro.nombre | titlecase }}</p>
+                <p>{{ libro.precio | currency }}</p>
+                <h3>{{ libro.author.nombre | titlecase }}</h3>
+                <button mat-raised-button color="basic" (click)="agregarProducto(libro)">Agregar</button>
+                <button mat-raised-button color="basic" (click)="editarLibro(libro)">Editar</button>
+                <button mat-raised-button color="basic" (click)="elimnarLibro(libro._id)">Eliminar</button>
+            </article>
+        </section>
+        <div class="container-paginator">
+            <app-paginator [totalItems]="totalLibros"></app-paginator>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Mi librería</p>
+    </footer>
+</app-sidenav>

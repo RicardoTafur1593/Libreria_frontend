@@ -1,0 +1,20 @@
+<mat-sidenav-container class='app-drawer-container' fullscreen>
+
+    <mat-sidenav [opened]="open" [disableClose]="!open">
+        <h1>¿Que desea realizar?</h1>       
+        <div class="menu" *ngIf="validarRol()">
+            <button mat-raised-button color="basic" (click)="registrarLibro()">Registrar Libro</button>
+            <button mat-raised-button color="basic" (click)="registrarAutor()">Registrar Autor</button>
+            <button mat-raised-button color="basic" (click)="eliminarAutor()">Eliminar Autor</button>
+        </div>
+        <div class="menu" *ngIf="!validarRol()">
+            <button mat-raised-button color="basic">Opciones</button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <ng-content #admin></ng-content>
+        <ng-content #user></ng-content>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,119 @@
+/*HEADER*/
+header {
+    display: flex;
+    align-items: center;
+    /*verticalmente*/
+    justify-content: space-between;
+    /*horizontalmente*/
+    background-color: #2c3e50;
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+}
+
+.menuButton {
+    margin-right: 10px;
+}
+
+/*MAIN*/
+main {
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    text-align: center;
+}
+
+article {
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-right: auto;
+}
+
+#usuario {
+    font-weight: bold;
+    text-decoration: double underline;
+}
+
+.icono {
+    margin-left: 10px;
+}
+
+.usuario {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.btnRegistrarEliminar {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: right;
+    margin: 1em;
+}
+
+.libros img {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 10px;
+}
+
+.libros h3 {
+    margin: auto;
+}
+
+.libros p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.container-paginator {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #ccc;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
